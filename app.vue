@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const categories = [
+const categories = 
+[
     {
       name: 'category1',
       subcategories: [
@@ -26,14 +27,14 @@ const categories = [
     }
 ];
 
-const inputCategory = ref('');
-const resultPath = ref('');
+const inputCategory = ref<string>('');
+const resultPath = ref<string>('');
 
 const findPath = () => {
   resultPath.value = getCategoryPath(categories, inputCategory.value);
 };
 
-const getCategoryPath = (categories: any[], categoryName: string) => {
+const getCategoryPath = (categories: Object[], categoryName: string) => {
     let path;
 
     const getPath = (cats: any[], currentPath: string) => {
@@ -57,30 +58,36 @@ const getCategoryPath = (categories: any[], categoryName: string) => {
 </script>
 
 <template>
-  <div class="p-6 max-w-md mx-auto">
-    <h1 class="text-xl font-bold mb-4">Category Path Finder</h1>
+  <h1 class="pl-6 pt-6 text-xl font-bold mb-4">Category Path Finder</h1>
+  <div class="p-6 flex flex-row justify-between">
+    <div class="w-1/2">
 
-    <pre class="bg-gray-100 p-4 rounded">
-      {{ categories }}
-    </pre>
-
-    <input
-      v-model="inputCategory"
-      type="text"
-      placeholder="Enter category name"
-      class="border p-2 w-full mb-4"
-    />
-
-    <button
-      @click="findPath"
-      class="bg-blue-500 text-white px-4 py-2 rounded mb-4"
-    >
-      Find Path
-    </button>
-
-    <div v-if="resultPath" class="mb-4">
-      <strong>Result:</strong> {{ resultPath }}
+      <pre class="bg-gray-100 p-4 rounded">
+        {{ categories }}
+      </pre>
     </div>
 
+    <div class="w-1/2 ml-4">
+      <div class="flex flex-row">
+        <input
+        v-model="inputCategory"
+        type="text"
+        placeholder="Enter category name"
+        class="border p-2"
+        />
+     </div>
+    
+     <div class="flex flex-row pt-2">
+      <button
+        @click="findPath"
+        class="bg-blue-500 text-white px-4 py-2 rounded mb-4"
+      >
+        Find Path
+      </button>
+     </div>
+      <div v-if="resultPath" class="mb-4">
+        <strong>Result:</strong> {{ resultPath }}
+      </div>
+    </div>
   </div>
 </template>
