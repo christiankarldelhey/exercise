@@ -1,3 +1,12 @@
+
+# Christian Karl Delhey Capitole techcnical exercise:
+
+Please search for the solution of the exercise in the app.vue file.
+After some tests, I took a recursive approach to support also future categories changes in the array.
+I created a simple UI to test the solution with Nuxt and tailwind.
+
+Thank you for your time! :)
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
