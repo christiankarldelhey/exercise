@@ -3,6 +3,32 @@ import type { Categories, CategoryPath } from '../types/types';
 
 export function useCategories() {
 
+    const categories: Categories = 
+    [
+        {
+        name: 'category1',
+        subcategories: [
+            {
+            name: 'category2',
+            subcategories: []
+            },
+            {
+            name: 'category3',
+            subcategories: [
+                {
+                name: 'category4',
+                subcategories: []
+                }
+            ]
+            }
+        ]
+        },
+        {
+        name: 'category5',
+        subcategories: []
+        }
+    ];
+
     const getCategoryPath = (categories: Categories, categoryName: string) => {
         let path: CategoryPath = '';
     
@@ -25,6 +51,7 @@ export function useCategories() {
     };
 
     return {
+        categories,
         getCategoryPath,
     };
 }

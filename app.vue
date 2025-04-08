@@ -1,35 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { Categories, CategoryPath } from './types/types';
+import type { CategoryPath } from './types/types';
 import { useCategories } from './composables/useCategories';
 
-const { getCategoryPath } = useCategories();
-
-const categories: Categories = 
-[
-    {
-      name: 'category1',
-      subcategories: [
-        {
-          name: 'category2',
-          subcategories: []
-        },
-        {
-          name: 'category3',
-          subcategories: [
-            {
-              name: 'category4',
-              subcategories: []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      name: 'category5',
-      subcategories: []
-    }
-];
+const { categories, getCategoryPath } = useCategories();
 
 const inputCategory = ref<string>('');
 const resultPath = ref<CategoryPath>('');
@@ -41,16 +15,18 @@ const findPath = () => {
 </script>
 
 <template>
-  <h1 class="pl-6 pt-6 text-xl font-bold mb-4">Category Path Finder</h1>
-  <div class="p-6 flex flex-row justify-between">
-    <div class="w-1/2">
+  <div class="p-6 flex flex-row justify-center">
+    <h1 class="text-xl font-bold">Category Path Finder</h1>
+  </div>
+  <div class="p-6 flex flex-row justify-center">
+    <div class="w-1/3">
 
-      <pre class="bg-gray-100 p-4 rounded">
+      <pre class="bg-gray-100 p-4 rounded text-sm">
         {{ categories }}
       </pre>
     </div>
 
-    <div class="w-1/2 ml-4">
+    <div class="w-1/3 ml-4">
       <div class="flex flex-row">
         <input
         v-model="inputCategory"
