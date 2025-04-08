@@ -1,6 +1,5 @@
 import type { Categories, CategoryPath } from '../types/types';
 
-
 export function useCategories() {
 
     const categories: Categories = 
@@ -30,7 +29,7 @@ export function useCategories() {
     ];
 
     const getCategoryPath = (categories: Categories, categoryName: string) => {
-        let path: CategoryPath = '';
+        let path;
     
         const getPath = (cats: Categories, currentPath: CategoryPath) => {
             cats.forEach(cat => {

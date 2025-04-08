@@ -15,12 +15,12 @@ const findPath = () => {
 </script>
 
 <template>
-  <div class="p-6 flex flex-row justify-center">
+  <div class="p-6 text-center">
     <h1 class="text-xl font-bold">Category Path Finder</h1>
   </div>
   <div class="p-6 flex flex-row justify-center">
     <div class="w-1/3">
-
+      
       <pre class="bg-gray-100 p-4 rounded text-sm">
         {{ categories }}
       </pre>
