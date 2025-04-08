@@ -1,11 +1,14 @@
 
-# Christian Karl Delhey Capitole techcnical exercise:
+# Capitole technical exercise:
 
-Please search for the solution of the exercise in the app.vue file.
+Please search for the solution of the exercise in the useCategories.ts composable file.
 After some tests, I took a recursive approach to support also future categories changes in the array.
-I created a simple UI to test the solution with Nuxt and tailwind.
+I created a simple UI to test the solution with Nuxt and tailwind in the app.vue and while the logic remains in the composable. Also I made tests with vitest to check the assumptions.
+Everything is typed with Typescript.
 
 Thank you for your time! :)
+
+Christian Delhey
 
 # Nuxt Minimal Starter
 
@@ -47,38 +50,3 @@ yarn dev
 bun run dev
 ```
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

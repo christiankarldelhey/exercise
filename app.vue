@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import type { Categories, CategoryPath } from './types/types';
+import { useCategories } from './composables/useCategories';
 
-const categories = 
+const { getCategoryPath } = useCategories();
+
+const categories: Categories = 
 [
     {
       name: 'category1',
@@ -28,31 +32,10 @@ const categories =
 ];
 
 const inputCategory = ref<string>('');
-const resultPath = ref<string>('');
+const resultPath = ref<CategoryPath>('');
 
 const findPath = () => {
   resultPath.value = getCategoryPath(categories, inputCategory.value);
-};
-
-const getCategoryPath = (categories: Object[], categoryName: string) => {
-    let path;
-
-    const getPath = (cats: any[], currentPath: string) => {
-        cats.forEach(cat => {
-            const newPath = `${currentPath}/${cat.name}`;
-            if (cat.name === categoryName) {
-                path = newPath;
-                return;
-            }
-            if (cat.subcategories && cat.subcategories.length > 0) {
-                getPath(cat.subcategories, newPath);
-            }
-        });
-    };
-
-    getPath(categories, '');
-
-    return path;
 };
 
 </script>
